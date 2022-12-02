@@ -1,19 +1,33 @@
 //Start Game
+
+let computerScore = 0;
+let playerScore = 0;
+
 const myArray = [ "Rock", "Paper",  "Scissors" ] ;
-function getComputerChoice (myArray){   //Computer randomly returns Rock, Paper, or Scissors
+function getComputerChoice (){   //Computer randomly returns Rock, Paper, or Scissors
     return myArray[Math.floor(Math.random() * myArray.length)];
-    //console.log(getComputerChoice(moves))
+    console.log(getComputerChoice(myArray))
 }
 function playRound(playerSelection, computerSelection) {
+computerSelection = getComputerChoice().toLowerCase();
+playerSelection = playerSelection.toLowerCase();
+if (computerSelection == playerSelection) {
+    displayResults("TieGame");
+} else if (
+    (computerSelection == "rock" && playerSelection == "scissors") ||
+    (computerSelection == "paper" && playerSelection == "rock") ||
+    (computerSelection == "scissors" && playerSelection == "paper")
+)
+    if(computerSelection == 1) {
+        displayResults ( `You Lost! ${computerSelection} beats ${playerSelection}`)
 
-    if(playerSelection = myArray) {
-        getComputerChoice(myArray)
+    } else if (playerSelection ==1 ) {
+        displayResults ( `You Won! ${playerSelection} beats ${computerSelection}`)
     }
 }   
 const playerSelection = "rock";
 const computerSelection = getComputerChoice(myArray);
 console.log(playRound(playerSelection, computerSelection));                            //Ask player to choose Rock, Paper, or Scissors
-//Rock Beats Paper
 //Rock Beats Scissors
 //Scissors Beat Paper
 //Paper Beats Rock
